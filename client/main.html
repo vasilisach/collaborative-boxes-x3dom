@@ -1,0 +1,27 @@
+<head>
+  <title>collaborativeLegoBlocks</title>
+</head>
+
+<body>
+    <x3d>
+      <scene>
+        <p><b>{{boxesCount}}</b> boxes</p>
+        <SpotLight on ='TRUE' intensity='0.5' beamWidth='0.1' color='1 1 1' cutOffAngle='1' location='-10 5 12' radius='40'>  </SpotLight>
+        <DirectionalLight direction='-1 0.5 -1' on='TRUE' intensity='0.01' shadowIntensity='0.3' shadowFilterSize='0' shadowMapSize='150' shadowCascades='5' global='TRUE'> </DirectionalLight>
+        <shape> 
+          <appearance>
+            <material diffuseColor='0.3 0.85 0.75'></material>
+          </appearance>
+          <plane size='30 20'></plane>
+        </shape>
+        {{#each boxes}}
+  		  <transform translation='{{x}} {{y}} {{z}}'>
+		      <shape id='{{_id}}''>
+		    	  <appearance><material diffuseColor='{{color}}'></material></appearance>
+		        <box size='0.5 0.5 0.5'></box>
+		      </shape>
+		    </transform>
+        {{/each}}
+      </scene>
+    </x3d>
+</body>
